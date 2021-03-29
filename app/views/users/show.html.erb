@@ -1,0 +1,7 @@
+<% if @user.admin == true %>
+  <h1>ADMIN</h1>
+<% end %>
+
+<% @user.public_attributes.each do |att, val| %>
+  <h2><%=att.capitalize%>: <%=val%></h2>
+<% end %>
