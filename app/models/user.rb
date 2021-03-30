@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     has_secure_password
 
     def mood
-        if self.happiness > self.nausea
+        if self.happiness >= self.nausea
             "happy"
         else
             "sad"
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     end
 
     def public_attributes
-        {name: self.name, height: self.height, happiness: self.happiness, nausea: self.nausea, tickets: self.tickets}
+        {name: self.name, height: self.height, mood: self.mood, tickets: self.tickets}
     end
 
 end

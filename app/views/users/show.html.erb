@@ -1,7 +1,14 @@
 <% if @user.admin == true %>
   <h1>ADMIN</h1>
+  <h1><%=@user.name%></h1>
+  <% else %>
+  <% @user.public_attributes.each do |att, val| %>
+    <h2><%=att.capitalize%>: <%=val%></h2>
+  <% end %>
 <% end %>
 
-<% @user.public_attributes.each do |att, val| %>
-  <h2><%=att.capitalize%>: <%=val%></h2>
-<% end %>
+<a href="/attractions">See attractions</a>
+
+<a href="/sessions" method="post">Log Out</a>
+
+

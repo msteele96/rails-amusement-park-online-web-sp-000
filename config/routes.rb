@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   resources :users, :attractions
   root 'users#new'
+
+  get '/signin' => 'sessions#new'
+  post '/signin' => 'sessions#create'
+  get '/sessions' => 'sessions#destroy'
 end
