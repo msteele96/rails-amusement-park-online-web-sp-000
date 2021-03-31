@@ -1,5 +1,15 @@
 <h1>Attractions</h1>
 
-<% @attractions.each do |attraction| %>
-  <a href="/attractions/<%=attraction.id%>"><%=attraction.name%></a>
+<% if @user.admin == true %>
+  <% @attractions.each do |attraction| %>
+    <a href="/attractions/<%=attraction.id%>">Show <%=attraction.name%></a> <br>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to "New Attraction", new_attraction_path%>
+<% else %>
+  <% @attractions.each do |attraction| %>
+  <a href="/attractions/<%=attraction.id%>">Go on <%=attraction.name%></a> <br>
+  <% end %>
 <% end %>
+
